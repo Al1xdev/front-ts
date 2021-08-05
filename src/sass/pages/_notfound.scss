@@ -1,0 +1,14 @@
+.not-found {
+  height: 100vh;
+  @include center-items;
+  &__title {
+    color: #fff;
+    font-size: 65px;
+    font-weight: 600;
+    letter-spacing: 8px;
+  }
+  &__descr {
+    color: #fff;
+    font-size: 26px;
+  }
+}

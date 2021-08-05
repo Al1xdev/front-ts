@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif !important;
+  background: $bgMain;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto; 
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+input:focus{
+  outline: none;
+}

@@ -1,0 +1,27 @@
+.search-box {
+  display: flex;
+  align-content: center;
+  &__item {
+    width: 300px;
+    padding: 10px 15px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+    background: #212f49;
+    color: #ffffff;
+    border: 1px solid #212f49;
+    &::placeholder {
+      color: #ffffff;
+    }
+    &:focus, &:hover {
+      border-color: #fff;
+      outline: none;
+    }
+  }
+  &__btn {
+    border: none;
+    outline: none;
+    background: none;
+    margin-left: -38px;
+  }
+}

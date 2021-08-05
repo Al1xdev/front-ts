@@ -1,0 +1,45 @@
+.auth {
+  height: 100vh;
+  @include center-items;
+  &__title {
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__input {
+    width: 310px;
+    font-weight: 300;
+    background: #efefef;
+    border-radius: 10px;
+    color: #191a1d;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 15px 0 20px 23px;
+    border: none;
+    margin-top: 15px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  &__error {
+    color: #ff0000;
+    margin-top: 5px;
+  }
+  &__btn {
+    margin-top: 15px;
+  }
+  &__create {
+    text-align: center;
+    margin-top: 10px;
+  }
+  &__account {
+    text-decoration: none;
+    color: #fff;
+  }
+}
