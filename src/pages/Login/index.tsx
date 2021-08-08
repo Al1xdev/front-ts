@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { FormInputLogin } from '../../types/Pages/Login';
 import { SchemaLoginForm } from '../../utils/helpers/SchemaLogin';
-import { signUp } from '../../store/reducers/auth/actions';
+import { login } from '../../store/reducers/auth/actions';
 
 const initialValues: FormInputLogin = {
   login: '',
@@ -14,8 +14,9 @@ const initialValues: FormInputLogin = {
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
+
   const onSubmit = (data: FormInputLogin) => {
-    dispatch(signUp(data));
+    dispatch(login(data));
   };
 
   return (
