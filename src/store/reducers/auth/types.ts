@@ -32,7 +32,7 @@ export interface SetIsLoaded {
 export interface SetError {
   type: ActionsAuthType.SET_ERROR;
   payload: {
-    error: boolean;
+    error: null | string;
   };
 }
 
@@ -45,7 +45,6 @@ export interface SignUp {
 
 export interface Logout {
   type: ActionsAuthType.LOGOUT;
-  payload: null;
 }
 
 export interface Login {

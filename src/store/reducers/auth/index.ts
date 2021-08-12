@@ -13,9 +13,18 @@ export const authReducer = (
   switch (action.type) {
     case ActionsAuthType.IS_AUTHENTICATED:
       return {
+        ...state,
         isAuthenticated: action.payload.isAuthenticated,
-        isLoaded: true,
-        error: null,
+      };
+    case ActionsAuthType.IS_LOADED:
+      return {
+        ...state,
+        isLoaded: action.payload.isLoaded,
+      };
+    case ActionsAuthType.SET_ERROR:
+      return {
+        ...state,
+        error: action.payload.error,
       };
     default:
       return state;

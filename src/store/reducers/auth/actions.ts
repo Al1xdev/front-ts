@@ -25,7 +25,7 @@ export const setIsLoaded = (isLoaded: boolean): SetIsLoaded => ({
   },
 });
 
-export const setError = (error: boolean): SetError => ({
+export const setError = (error: string): SetError => ({
   type: ActionsAuthType.SET_ERROR,
   payload: { error },
 });
@@ -42,5 +42,4 @@ export const login = (userCredential: UserCredential): Login => ({
 
 export const logout = (): Logout => ({
   type: ActionsAuthType.LOGOUT,
-  payload: null,
 });
