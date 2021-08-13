@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Formik } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { FormInputRegestration } from '../../types/Pages/SignUp';
 import { SchemaSignUpForm } from '../../utils/helpers/SchemaSignUp';
 import { signUp } from '../../store/reducers/auth/actions';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 const SignUp: React.FC = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const isAuth = useTypeSelector(({ auth }) => auth.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuth) history.push('/');
+  }, [isAuth, history]);
 
   const initialValues: FormInputRegestration = {
     login: '',

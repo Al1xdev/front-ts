@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Formik } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { FormInputLogin } from '../../types/Pages/Login';
 import { SchemaLoginForm } from '../../utils/helpers/SchemaLogin';
 import { login } from '../../store/reducers/auth/actions';
+import ErrorIndicator from '../../components/ErrorIndicator';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 const initialValues: FormInputLogin = {
   login: '',
@@ -14,6 +16,12 @@ const initialValues: FormInputLogin = {
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const isAuth = useTypeSelector(({ auth }) => auth.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuth) history.push('/');
+  }, [isAuth, history]);
 
   const onSubmit = (data: FormInputLogin) => {
     dispatch(login(data));
@@ -63,13 +71,13 @@ const Login: React.FC = () => {
                   <span>{errors.password}</span>
                 )}
               </div>
+              <ErrorIndicator />
               <button type="submit" className="auth__btn button">
                 войти
               </button>
             </form>
           )}
         </Formik>
-
         <div className="auth__create">
           <Link to="/signUp" className="auth__account">
             Создать аккаунт!
