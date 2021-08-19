@@ -7,6 +7,8 @@ import {
   setError,
   setIsAuthenticated,
 } from '../../reducers/auth/actions';
+import { addNotification } from '../../reducers/notifications/actions';
+import { INotificationMsg } from '../../../types/Notification';
 
 function* login(action: Login) {
   try {
@@ -17,8 +19,20 @@ function* login(action: Login) {
       action.payload.userCredential.password,
     );
     yield put(setIsAuthenticated(true));
+    const authNotification: INotificationMsg = {
+      id: 1,
+      message: 'Вход выполнен',
+      type: 'success',
+    };
+    yield put(addNotification(authNotification));
   } catch (error) {
     yield put(setError(error.message));
+    const authNotification: INotificationMsg = {
+      id: 1,
+      message: 'Что-то пошло не так',
+      type: 'error',
+    };
+    yield put(addNotification(authNotification));
   } finally {
     yield put(setIsLoaded(false));
   }
@@ -33,8 +47,20 @@ function* signUp(action: SignUp) {
       action.payload.userData.password,
     );
     yield put(setIsAuthenticated(true));
+    const authNotification: INotificationMsg = {
+      id: 1,
+      message: 'Вы зарегиcтрировались',
+      type: 'success',
+    };
+    yield put(addNotification(authNotification));
   } catch (error) {
     yield put(setError(error.message));
+    const authNotification: INotificationMsg = {
+      id: 1,
+      message: 'Ошибка зарегиcтрации',
+      type: 'error',
+    };
+    yield put(addNotification(authNotification));
   } finally {
     yield put(setIsLoaded(false));
   }
@@ -43,8 +69,14 @@ function* signUp(action: SignUp) {
 function* logout() {
   try {
     yield put(setIsLoaded(false));
-    yield call(auth.signOut);
+    yield call([auth, auth.signOut]);
     yield put(setIsAuthenticated(false));
+    const authNotification: INotificationMsg = {
+      id: 1,
+      message: 'Выход выполнен',
+      type: 'success',
+    };
+    yield put(addNotification(authNotification));
   } catch (error) {
     yield put(setError(error.message));
   } finally {
