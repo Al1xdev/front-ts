@@ -1,0 +1,32 @@
+.notification {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  padding: 23px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  transition: 1s;
+  animation: show 3s 1;
+  &_success {
+    background: $color-success;
+  }
+  &_error {
+    background: $color-error;
+  }
+  &__title {
+    font-size: 20px;
+    color: #fff;
+  }
+}
+
+@keyframes show{
+  0%{
+  opacity:0;
+  }
+  100% {
+  opacity:1;
+  }
+  }
