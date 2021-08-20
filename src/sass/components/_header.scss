@@ -7,13 +7,9 @@
     font-size: 22px;
     font-weight: 700;
   }
-  &__btn-add {
-    padding: 10px 17px;
-    font-size: 16px;
-    color: #fff;
-    background: #0015d3;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+  &__buttons-group {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
   }
 }

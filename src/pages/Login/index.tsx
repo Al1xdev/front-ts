@@ -72,7 +72,7 @@ const Login: React.FC = () => {
                 )}
               </div>
               <ErrorIndicator />
-              <button type="submit" className="auth__btn button">
+              <button type="submit" className="auth__btn">
                 войти
               </button>
             </form>

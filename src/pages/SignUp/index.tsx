@@ -68,7 +68,7 @@ const SignUp: React.FC = () => {
                   <span>{errors.password}</span>
                 )}
               </div>
-              <button className="auth__btn button" type="submit">
+              <button className="auth__btn" type="submit">
                 зарегиcтрироваться
               </button>
             </form>

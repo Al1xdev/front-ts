@@ -33,6 +33,18 @@
   }
   &__btn {
     margin-top: 15px;
+    background: linear-gradient(
+      90deg,
+      rgba(110, 44, 255, 1) 0%,
+      rgba(0, 218, 255, 1) 100%
+    );
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    padding: 16px 0;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
   }
   &__create {
     text-align: center;
