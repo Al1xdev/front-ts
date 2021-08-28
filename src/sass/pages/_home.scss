@@ -1,0 +1,28 @@
+.home {
+  min-height: 100vh;
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    background: #c7d6e2;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 7px 10px;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  &__descr {
+    color: #617d98;
+    margin-bottom: 10px;
+    flex: 1 1 auto;
+  }
+}
