@@ -1,7 +1,7 @@
 import { PostsState, ActionsPostsTypes, PostsAction } from './types';
 
 const initialState: PostsState = {
-  posts: [],
+  posts: null,
   isLoaded: false,
   error: null,
 };
@@ -11,10 +11,12 @@ export const postsReducer = (
   action: PostsAction,
 ): PostsState => {
   switch (action.type) {
+    case ActionsPostsTypes.POST_REQUEST:
+      return { ...state };
     case ActionsPostsTypes.FETCH_POSTS:
       return {
         ...state,
-        posts: [...state.posts, action.payload.posts],
+        posts: action.payload.posts,
       };
     case ActionsPostsTypes.IS_LOADED:
       return {

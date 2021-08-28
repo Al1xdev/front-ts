@@ -1,7 +1,8 @@
 import { IPosts } from '../../../types/Posts';
 
+export type PostItem = null | Array<IPosts>;
 export interface PostsState {
-  posts: IPosts[];
+  posts: PostItem;
   isLoaded: boolean;
   error: string | null;
 }
@@ -11,11 +12,12 @@ export enum ActionsPostsTypes {
   SET_ERROR = 'SET_ERROR',
   IS_LOADED = 'IS_LOADED',
   POST_REQUEST = 'POST_REQUEST',
+  DELETE_POST = 'DELETE_POST',
 }
 
 export interface FetchPosts {
   type: ActionsPostsTypes.FETCH_POSTS;
-  payload: { posts: IPosts };
+  payload: { posts: PostItem };
 }
 
 export interface SetError {
@@ -32,4 +34,14 @@ export interface PostRequest {
   type: ActionsPostsTypes.POST_REQUEST;
 }
 
-export type PostsAction = FetchPosts | SetError | SetIsLoaded | PostRequest;
+export interface DeletePost {
+  type: ActionsPostsTypes.DELETE_POST;
+  payload: { id: number };
+}
+
+export type PostsAction =
+  | FetchPosts
+  | SetError
+  | SetIsLoaded
+  | PostRequest
+  | DeletePost;
