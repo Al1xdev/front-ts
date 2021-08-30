@@ -6,7 +6,7 @@ import SearchBar from '../../components/SearchBar';
 import Spinner from '../../components/Spinner';
 import Button from '../../components/UI/Button';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { postRequest } from '../../store/reducers/Posts/actions';
+import { postRequest, deletePost } from '../../store/reducers/Posts/actions';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,10 @@ const Home: React.FC = () => {
     dispatch(postRequest());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const deletItem = (id: number) => {
+    dispatch(deletePost(id));
+  };
 
   return (
     <section className="home">
@@ -29,7 +33,7 @@ const Home: React.FC = () => {
               <div key={post.id} className="home__item">
                 <div className="home__title">{post.title}</div>
                 <div className="home__descr">{post.body}</div>
-                <Button>Удалить</Button>
+                <Button onClick={() => deletItem(post.id)}>Удалить</Button>
               </div>
             );
           })
