@@ -1,4 +1,5 @@
 import { put, takeEvery, delay } from 'redux-saga/effects';
+import { SagaIterator } from 'redux-saga';
 
 import {
   ActionsNotificationTypes,
@@ -6,12 +7,12 @@ import {
 } from '../../reducers/notifications/types';
 import { removeNotification } from '../../reducers/notifications/actions';
 
-function* showNotification(action: AddNotification) {
+function* showNotification(action: AddNotification): SagaIterator {
   const { id } = action.payload.message;
   yield delay(4000);
   yield put(removeNotification(id));
 }
 
-export function* natificationWatcher() {
+export function* natificationWatcher(): SagaIterator {
   yield takeEvery(ActionsNotificationTypes.ADD_NOTIFICATION, showNotification);
 }
