@@ -1,3 +1,4 @@
+import { IPosts } from '../../../types/Posts';
 import {
   ActionsPostsTypes,
   FetchPosts,
@@ -6,6 +7,9 @@ import {
   PostRequest,
   PostItem,
   DeletePost,
+  ModalOpen,
+  EditPost,
+  CreatePostItem,
 } from './types';
 
 export const fetchPosts = (posts: PostItem): FetchPosts => ({
@@ -29,5 +33,20 @@ export const postRequest = (): PostRequest => ({
 
 export const deletePost = (id: number): DeletePost => ({
   type: ActionsPostsTypes.DELETE_POST,
+  payload: { id },
+});
+
+export const modalOpen = (isOpened: boolean): ModalOpen => ({
+  type: ActionsPostsTypes.IS_OPENED,
+  payload: { isOpened },
+});
+
+export const createPostItem = (post: IPosts): CreatePostItem => ({
+  type: ActionsPostsTypes.CREATE_POST,
+  payload: { post },
+});
+
+export const editPost = (id: number): EditPost => ({
+  type: ActionsPostsTypes.EDIT_POST,
   payload: { id },
 });

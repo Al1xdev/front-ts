@@ -1,0 +1,30 @@
+.modal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.8s;
+  &_active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__container {
+    min-width: 30%;
+    padding: 15px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform: translate(0, -200%);
+    transition: all 0.8s ease;
+  }
+  &_active-container {
+    transform: translate(0, 0);
+    transition: all 0.8s ease;
+  }
+}

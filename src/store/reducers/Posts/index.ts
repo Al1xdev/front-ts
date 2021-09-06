@@ -4,6 +4,7 @@ const initialState: PostsState = {
   posts: null,
   isLoaded: false,
   error: null,
+  isOpened: false,
 };
 
 export const postsReducer = (
@@ -28,6 +29,8 @@ export const postsReducer = (
         ...state,
         error: action.payload.error,
       };
+    case ActionsPostsTypes.IS_OPENED:
+      return { ...state, isOpened: action.payload.isOpened };
     default:
       return state;
   }
