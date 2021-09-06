@@ -1,10 +1,20 @@
 import React from 'react';
 
-import { IButton } from './types';
+interface IButton {
+  children: React.ReactChild | React.ReactNode;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  color?: string;
+}
 
-const Button: React.FC<IButton> = ({ children, onClick }) => {
+const Button: React.FC<IButton> = ({ children, onClick, type, color }) => {
   return (
-    <button className="button" onClick={onClick}>
+    <button
+      className="button"
+      onClick={onClick}
+      type={type}
+      style={{ backgroundColor: color }}
+    >
       {children}
     </button>
   );
