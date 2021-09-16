@@ -1,0 +1,27 @@
+.post {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__actions {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  &__btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  &__close-icon {
+    transition: all 0.2s ease;
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}

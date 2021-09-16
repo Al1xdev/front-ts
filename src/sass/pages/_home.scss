@@ -25,4 +25,9 @@
     margin-bottom: 10px;
     flex: 1 1 auto;
   }
+  &__actions {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+  }
 }

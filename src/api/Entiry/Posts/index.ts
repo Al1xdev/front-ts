@@ -17,3 +17,9 @@ export const deletePost = async (id: number): Promise<void> => {
     headers: HEADER_CONFIG,
   });
 };
+
+export const createPost = async (postData: IPosts): Promise<void> => {
+  await axios.post(BASE_URL, postData, {
+    headers: HEADER_CONFIG,
+  });
+};

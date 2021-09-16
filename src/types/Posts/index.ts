@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 
 const productStructure = yup.object({
-  userId: yup.number().required(),
   id: yup.number().required(),
   title: yup.string().required(),
   body: yup.string().required(),

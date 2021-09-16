@@ -10,6 +10,8 @@ import {
   ModalOpen,
   EditPost,
   CreatePostItem,
+  SetPost,
+  ClearFields,
 } from './types';
 
 export const fetchPosts = (posts: PostItem): FetchPosts => ({
@@ -49,4 +51,14 @@ export const createPostItem = (post: IPosts): CreatePostItem => ({
 export const editPost = (id: number): EditPost => ({
   type: ActionsPostsTypes.EDIT_POST,
   payload: { id },
+});
+
+export const setPost = (post: IPosts): SetPost => ({
+  type: ActionsPostsTypes.SET_POST,
+  payload: { post },
+});
+
+export const clearFields = (): ClearFields => ({
+  type: ActionsPostsTypes.CLEAR_FIELDS,
+  payload: null,
 });
