@@ -1,19 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
-import PrivatRoute from './PrivatRoute';
-import { Home, SignUp, Login, NotFound } from '../pages';
+import { privatRoutes, publicRoutes } from './routes';
+import { useTypeSelector } from '../hooks/useTypeSelector';
 
 const RouteItems: React.FC = () => {
-  return (
-    <Router>
-      <Switch>
-        <PrivatRoute exact path="/" component={Home} />
-        <Route exact component={SignUp} path="/signUp" />
-        <Route exact component={Login} path="/login" />
-        <Route component={NotFound} path="*" />
-      </Switch>
-    </Router>
+  const isAuth = useTypeSelector((state) => state.auth.isAuthenticated);
+
+  return isAuth ? (
+    <Switch>
+      {privatRoutes.map((route) => (
+        <Route
+          key={route.path}
+          exact={route.exact}
+          component={route.component}
+        />
+      ))}
+    </Switch>
+  ) : (
+    <Switch>
+      {publicRoutes.map((route) => (
+        <Route
+          key={route.path}
+          exact={route.exact}
+          component={route.component}
+        />
+      ))}
+    </Switch>
   );
 };
 
