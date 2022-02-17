@@ -9,7 +9,7 @@ import { removeNotification } from '../../reducers/notifications/actions';
 
 function* showNotification(action: AddNotification): SagaIterator {
   const { id } = action.payload.message;
-  yield delay(4000);
+  yield delay(3000);
   yield put(removeNotification(id));
 }
 

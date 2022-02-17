@@ -8,6 +8,7 @@ export interface PostsState {
   error: string | null;
   isOpened: boolean;
   post: null | IPosts;
+  isEdit: boolean;
 }
 
 export enum ActionsPostsTypes {
@@ -21,6 +22,8 @@ export enum ActionsPostsTypes {
   CREATE_POST = 'CREATE_POST',
   SET_POST = 'SET_POST',
   CLEAR_FIELDS = 'CLEAR_FIELDS',
+  OPEN_MODAL_EDIT = 'OPEN_MODAL_EDIT',
+  IS_EDIT = 'IS_EDIT',
 }
 
 export interface FetchPosts {
@@ -54,7 +57,7 @@ export interface ModalOpen {
 
 export interface EditPost {
   type: ActionsPostsTypes.EDIT_POST;
-  payload: { id: number };
+  payload: { post: IPosts };
 }
 
 export interface CreatePostItem {
@@ -72,6 +75,16 @@ export interface ClearFields {
   payload: null;
 }
 
+export interface IsEditing {
+  type: ActionsPostsTypes.OPEN_MODAL_EDIT;
+  payload: { post: IPosts };
+}
+
+export interface IsEdit {
+  type: ActionsPostsTypes.IS_EDIT;
+  payload: { isEdited: boolean };
+}
+
 export type PostsAction =
   | FetchPosts
   | SetError
@@ -82,4 +95,6 @@ export type PostsAction =
   | EditPost
   | CreatePostItem
   | SetPost
-  | ClearFields;
+  | ClearFields
+  | IsEditing
+  | IsEdit;

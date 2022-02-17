@@ -12,6 +12,8 @@ import {
   CreatePostItem,
   SetPost,
   ClearFields,
+  IsEditing,
+  IsEdit,
 } from './types';
 
 export const fetchPosts = (posts: PostItem): FetchPosts => ({
@@ -48,9 +50,9 @@ export const createPostItem = (post: IPosts): CreatePostItem => ({
   payload: { post },
 });
 
-export const editPost = (id: number): EditPost => ({
+export const editPost = (post: IPosts): EditPost => ({
   type: ActionsPostsTypes.EDIT_POST,
-  payload: { id },
+  payload: { post },
 });
 
 export const setPost = (post: IPosts): SetPost => ({
@@ -61,4 +63,14 @@ export const setPost = (post: IPosts): SetPost => ({
 export const clearFields = (): ClearFields => ({
   type: ActionsPostsTypes.CLEAR_FIELDS,
   payload: null,
+});
+
+export const isEditing = (post: IPosts): IsEditing => ({
+  type: ActionsPostsTypes.OPEN_MODAL_EDIT,
+  payload: { post },
+});
+
+export const isEdit = (isEdited: boolean): IsEdit => ({
+  type: ActionsPostsTypes.IS_EDIT,
+  payload: { isEdited },
 });

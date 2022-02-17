@@ -45,7 +45,7 @@ const SignUp: React.FC = () => {
           }) => (
             <form className="auth__form" onSubmit={handleSubmit}>
               <input
-                className="auth__input"
+                className="input"
                 name="login"
                 placeholder="введите почту"
                 value={values.login}
@@ -56,7 +56,7 @@ const SignUp: React.FC = () => {
                 {errors.login && touched.login && <span>{errors.login}</span>}
               </div>
               <input
-                className="auth__input"
+                className="input"
                 name="password"
                 placeholder="введите пароль"
                 value={values.password}

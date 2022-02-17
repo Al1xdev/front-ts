@@ -1,18 +1,18 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { createPostItem, modalOpen } from '../../store/reducers/Posts/actions';
-import { useTypeSelector } from '../../hooks/useTypeSelector';
-import cancel from '../../assets/icons/cancel.svg';
-import { IPosts } from '../../types/Posts';
 import PostFormStructure from '../PostFormStructure';
+import cancel from '../../assets/icons/cancel.svg';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { editPost, modalOpen } from '../../store/reducers/Posts/actions';
+import { IPosts } from '../../types/Posts';
 
-const CreatePost: React.FC = React.memo(() => {
+const EditPost: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const isOpen = useTypeSelector((state) => state.posts.isOpened);
 
   const onSubmit = (data: IPosts) => {
-    dispatch(createPostItem(data));
+    dispatch(editPost(data));
   };
 
   const closeModal = () => {
@@ -26,10 +26,10 @@ const CreatePost: React.FC = React.memo(() => {
           <img src={cancel} alt="close" className="post__close-icon" />
         </button>
       </div>
-      <h2>Создать пост!</h2>
+      <h2>Обновить пост!</h2>
       <PostFormStructure onSubmit={onSubmit} />
     </div>
   );
 });
 
-export default CreatePost;
+export default EditPost;

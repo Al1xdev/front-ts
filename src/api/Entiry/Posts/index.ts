@@ -23,3 +23,9 @@ export const createPost = async (postData: IPosts): Promise<void> => {
     headers: HEADER_CONFIG,
   });
 };
+
+export const editPost = async (postData: IPosts): Promise<void> => {
+  await axios.put(`${BASE_URL}/${postData.id}`, postData, {
+    headers: HEADER_CONFIG,
+  });
+};

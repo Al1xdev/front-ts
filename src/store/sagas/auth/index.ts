@@ -27,7 +27,7 @@ function* login(action: Login): SagaIterator {
       type: 'success',
     };
     yield put(addNotification(authNotification));
-  } catch (error) {
+  } catch (error: any) {
     yield put(setError(error.message));
     const authNotification: INotificationMsg = {
       id: 1,
@@ -55,7 +55,7 @@ function* signUp(action: SignUp): SagaIterator {
       type: 'success',
     };
     yield put(addNotification(authNotification));
-  } catch (error) {
+  } catch (error: any) {
     yield put(setError(error.message));
     const authNotification: INotificationMsg = {
       id: 1,
@@ -80,7 +80,7 @@ function* logout(): SagaIterator {
       type: 'success',
     };
     yield put(addNotification(authNotification));
-  } catch (error) {
+  } catch (error: any) {
     yield put(setError(error.message));
   } finally {
     yield put(setIsLoaded(false));

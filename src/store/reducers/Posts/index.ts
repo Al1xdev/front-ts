@@ -6,6 +6,7 @@ const initialState: PostsState = {
   error: null,
   isOpened: false,
   post: null,
+  isEdit: false,
 };
 
 export const postsReducer = (
@@ -31,11 +32,25 @@ export const postsReducer = (
         error: action.payload.error,
       };
     case ActionsPostsTypes.IS_OPENED:
-      return { ...state, isOpened: action.payload.isOpened };
+      return {
+        ...state,
+        isOpened: action.payload.isOpened,
+      };
     case ActionsPostsTypes.SET_POST:
-      return { ...state, post: action.payload.post };
+      return {
+        ...state,
+        post: action.payload.post,
+      };
     case ActionsPostsTypes.CLEAR_FIELDS:
-      return { ...state, post: action.payload };
+      return {
+        ...state,
+        post: action.payload,
+      };
+    case ActionsPostsTypes.IS_EDIT:
+      return {
+        ...state,
+        isEdit: action.payload.isEdited,
+      };
     default:
       return state;
   }
