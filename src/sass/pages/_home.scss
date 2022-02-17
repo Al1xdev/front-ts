@@ -8,8 +8,8 @@
   }
   &__item {
     display: flex;
+    flex: 1 0 40%;
     flex-direction: column;
-    max-width: 550px;
     background: #c7d6e2;
     border-radius: 10px;
     margin-bottom: 20px;

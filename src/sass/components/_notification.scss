@@ -10,6 +10,7 @@
   right: 0;
   transition: 1s;
   animation: show 3s 1;
+  z-index: 12;
   &_success {
     background: $color-success;
   }
