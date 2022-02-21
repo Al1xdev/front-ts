@@ -2,6 +2,7 @@
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   &__title {
     color: #fff;
     font-size: 22px;
@@ -10,6 +11,9 @@
   &__buttons-group {
     display: flex;
     justify-content: space-between;
-    width: 180px;
+
+    > button {
+      margin-right: 10px;
+    }
   }
 }

@@ -44,10 +44,10 @@ const Home: React.FC = () => {
         {!isLoaded ? (
           posts?.map((post) => {
             return (
-              <Fade key={post.id}>
+              <Fade key={post.id} className="home__el">
                 <div className="home__item">
-                  <div className="home__title">{post.title}</div>
-                  <div className="home__descr">{post.body}</div>
+                  <p className="home__title">{post.title}</p>
+                  <p className="home__descr">{post.body}</p>
                   <div className="home__actions">
                     <Button onClick={() => deletItem(post.id)}>Удалить</Button>
                     <Button onClick={() => editItem(post)}>
